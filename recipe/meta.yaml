@@ -1,4 +1,4 @@
-{% set version = "2.16.17" %}
+{% set version = '2.16.17' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -21,10 +21,10 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -48,23 +48,19 @@ about:
   license: Artistic-2.0
   summary: Provides an R interface to functions of the 'SAMtools' C-Library by Heng Li <http://www.htslib.org/>.
   license_family: OTHER
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/Artistic-2.0'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
 
 # Package: rbamtools
 # Type: Package
 # Title: Read and Write BAM (Binary Alignment) Files
-# Version: 2.16.11
-# Date: 2018-04-14
-# Authors@R: c(person("Wolfgang", "Kaisers", role=c("aut", "cre"), email="wolfgang.kaisers@gmail.com"), person("Heng", "Li", role=c("ctb", "cph"),  email="lh3@sanger.ac.uk"), person("Jue", "Ruan", role=c("ctb", "cph"), email="ruanjue@gmail.com"))
+# Version: 2.16.17
+# Date: 2019-11-08
+# Authors@R: c(person("Wolfgang", "Kaisers", role=c("aut", "cre"), email="wolfgang.kaisers@gmail.com", comment = c(ORCID = "0000-0002-1923-3088")), person("Heng", "Li", role=c("ctb", "cph"), email="lh3@sanger.ac.uk"), person("Jue", "Ruan", role=c("ctb", "cph"), email="ruanjue@gmail.com"))
 # Description: Provides an R interface to functions of the 'SAMtools' C-Library by Heng Li <http://www.htslib.org/>.
 # License: Artistic-2.0
 # Copyright: file inst/COPYRIGHTS
@@ -72,9 +68,9 @@ extra:
 # Depends: methods,refGenome (>= 1.6.1)
 # Suggests: xtable
 # Collate: rbamtools.R segmentize.R sampleBamFiles.R
-# Packaged: 2018-05-07 11:50:34 UTC; kaisers
+# Packaged: 2019-11-11 08:02:08 UTC; wolfgang
 # Repository: CRAN
-# Date/Publication: 2018-05-07 12:40:46 UTC
+# Date/Publication: 2019-11-11 09:40:02 UTC
 # NeedsCompilation: yes
-# Author: Wolfgang Kaisers [aut, cre], Heng Li [ctb, cph], Jue Ruan [ctb, cph]
 # Maintainer: Wolfgang Kaisers <wolfgang.kaisers@gmail.com>
+# Author: Wolfgang Kaisers [aut, cre] (<https://orcid.org/0000-0002-1923-3088>), Heng Li [ctb, cph], Jue Ruan [ctb, cph]
